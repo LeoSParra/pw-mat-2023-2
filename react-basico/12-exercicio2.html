@@ -46,7 +46,8 @@
 
                 const resultado = reais / cotacao
 
-                resultRef.current.textContent = `Valor convertido: $${resultado.toFixed(2)}`
+                resultRef.current.textContent = `Valor convertido: ${resultado.toLocaleString('en-US', 
+                {style: 'currency', currency: 'USD'})} dólares`
             }
             return <>
                 <h1>Conversor de Real para dólar</h1>
