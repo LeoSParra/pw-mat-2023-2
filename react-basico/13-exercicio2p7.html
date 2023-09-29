@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*
+          7) Após testar e comprovar o funcionamento, tire uma cópia do arquivo e refaça o exercício,
+             com cada input tendo sua própria função onChange e usando variáveis de estado (useState)
+             para armazenar os reais quando os inputs foram alterados.
+          Este exercício contará para a nota de Participação e Assiduidade (PA).
+        */
+        function Form() {
+            const [reais, setReais] = React.useState()
+            const [cotacao, setCotacao] = React.useState()
+            
+            let resultado = Number(reais) / Number(cotacao)
+
+
+            return <>
+                <h1>Conversor de Real para dólar</h1>
+                <form>
+                    <div>
+                        <label>
+                            <span>Valor em reais</span><br />
+                            <input type="number" value={reais} onChange={event => setReais(event.target.value)} />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <span>Cotação do dolar</span><br />
+                            <input type="number" value={cotacao} onChange={event => setCotacao(event.target.value)} />
+                        </label>
+                    </div>
+                    <div>
+                        {
+                            `Valor convertido: ${resultado.toLocaleString('en-US', 
+                            {style: 'currency', currency: 'USD'})} dólares`
+                        }
+                    </div>
+                </form>
+            </>
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<Form />)
+
+    </script>
+</body>
+</html>
