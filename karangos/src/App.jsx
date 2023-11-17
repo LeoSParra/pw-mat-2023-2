@@ -18,6 +18,7 @@ function App() {
           backgroundColor: 'background.default' 
         }}>
           <HeaderBar />
+          <Box sx={{ m: '25px' /* margem de 25px de todos lados */}}></Box>
           <Routes>
             <Route path="/" element={ <Homepage /> } />
             <Route path="/cars" element={ <CarList/> } />

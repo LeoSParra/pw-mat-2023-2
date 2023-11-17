@@ -5,6 +5,10 @@ function Board() {
   // const squares = Array(9).fill(null)
   const [squares, setSquares] = React.useState(
     // JSON.parse() converte string de volta em vetor
+    // Usando uma função para retornar o valor, estamos fazendo o
+    // "lazy initializer", ou seja, fazendo com que a inicialização
+    // do valor da variável de estado ocorra apenas quando o componente
+    // for carregado pela primeira vez
     () => JSON.parse(window.localStorage.getItem('squares')) ||
     Array(9).fill(null)
   )
@@ -19,10 +23,11 @@ function Board() {
   const winner = calculateWinner(squares)
   const status = calculateStatus(winner, squares, nextValue)
 
-  // useEffect que será executado toda vex que a variável de estado
-  // "squares" for alterada, armazenando seu vlor atualizado no localStorage
+  // useEffect que será executado toda vez que a variável de estado
+  // "squares" for alterada, armazenando seu valor atualizado no
+  // localStorage
   React.useEffect(() => {
-    // converte "squares" de vetor para string
+    // Converte "squares" de vetor para string
     // (localStorage só aceita valores string)
     const squaresStr = JSON.stringify(squares)
     window.localStorage.setItem('squares', squaresStr)
@@ -44,19 +49,20 @@ function Board() {
     //
     // 🐨 faça uma cópia da matriz dos quadrados
     // 💰 `[...squares]` é do que você precisa!)
-    const squaresCopy = [...squares]
+    const squaresCopy = [ ...squares ]
     
     // 🐨 ajuste o valor do quadrado que foi selecionado
     // 💰 `squaresCopy[square] = nextValue`
     squaresCopy[square] = nextValue
+    
     // 🐨 atribua a cópia à matriz dos quadrados
     setSquares(squaresCopy)
   }
 
   function restart() {
-    setSquares(Array(9).fill(null))
     // 🐨 volte os quadrados ao estado inicial
     // 💰 `Array(9).fill(null)` é do que você precisa!
+    setSquares(Array(9).fill(null))
   }
 
   function renderSquare(i) {
@@ -70,7 +76,7 @@ function Board() {
   return (
     <div>
       {/* 🐨 coloque o status na div abaixo */}
-      <div className="status">{status}</div>
+      <div className="status"> {status} </div>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}

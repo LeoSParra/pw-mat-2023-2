@@ -36,11 +36,12 @@ function Greeting({initialName = ''}) {
   // A função deve armazenar `name` no localStorage.
   // 💰 window.localStorage.setItem('name', name)
   React.useEffect(() => {
-    // Armazena o valor atualizado da variável de estado "name" no localStorage
+    // Armazena o valor atualizado da variável de estado "name"
+    // no localStorage
     window.localStorage.setItem('name', name)
     console.count('Executou useEffect()')
-  }, [name]) // [] é o VETOR DE DEPRENDENCIAS DO useEffect
-  // Dentro do vetor de dependencias,colocamos as variaveis de estado
+  }, [name]) // [] é o VETOR DE DEPENDÊNCIAS do useEffect
+  // Dentro do vetor de dependências, colocamos as variáveis de estado
   // que, quando forem atualizadas, disparam o useEffect
 
   function handleChange(event) {
@@ -64,7 +65,7 @@ function Greeting({initialName = ''}) {
             onClick={() => setTheme('darkTheme')}
           />&nbsp;Escuro
         </fieldset>
-        <label htmlFor="name">Nome: </label>
+        <label htmlFor="name">Name: </label>
         <input value={name} onChange={handleChange} id="name" />
       </form>
       {name ? <strong>Olá {name}</strong> : 'Por favor, informe seu nome'}

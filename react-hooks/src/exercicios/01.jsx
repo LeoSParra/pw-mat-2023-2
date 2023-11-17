@@ -4,7 +4,8 @@ function Greeting({initialName}) {
   // 💣 exclua esta declaração de variável e troque por uma chamada a React.useState
   // const name = ''
 
-  // Dentro dos parenteses do useState() colocamos o VALOR INICIAL da variavel de estado
+  // Dentro dos parênteses do useState() colocamos o VALOR INICIAL
+  // da variável de estado
   const [name, setName] = React.useState(initialName)
 
   function handleChange(event) {
@@ -16,9 +17,9 @@ function Greeting({initialName}) {
     <div>
       <form>
         <label htmlFor="name">Nome: </label>
-        {/* Um componente que tem tanto onChange quanto seu value 
-        ligados à variável de estado é chamado COMPONENTE CONTROLADO*/}
-        <input onChange={handleChange} id="name" value={name}/>
+        {/* Um componente que tem tanto onChange quanto seu value
+            ligados à variável de estado é chamado COMPONENTE CONTROLADO */}
+        <input onChange={handleChange} id="name" value={name} />
       </form>
       {name ? <strong>Olá {name}</strong> : 'Por favor, informe seu nome'}
     </div>
@@ -27,7 +28,7 @@ function Greeting({initialName}) {
 
 function Exercicio01() {
   // return Greeting({initialName: "Turíbio"})
-  return <Greeting initialName="Torresmo" />
+  return <Greeting initialName="Fausto" />
 }
 
 export default Exercicio01
