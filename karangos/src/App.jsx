@@ -4,6 +4,11 @@ import HeaderBar from './ui/HeaderBar'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './utils/theme'
 import Box from '@mui/material/Box'
+import { Link } from 'react-router-dom'
+
+import Homepage from './pages/Homepage'
+import Carlist from './pages/CarList'
+import CustomerList from './pages/CustomerList'
 
 function App() {
 
